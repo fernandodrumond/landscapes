@@ -1,0 +1,285 @@
+body{
+	font-size: 62.5%;
+	background: black;
+}
+
+@transitionDuration: 2s;
+@transitionEase: @easeInOut;
+
+.intro{
+	.absoluteTopLeft;
+	width: 100%;
+	height: 100%;
+	.transition(~"left @{transitionDuration} @{transitionEase}");
+		opacity: 1!important;
+
+	video{
+		width: 100%;
+		.absoluteTopLeft(12%, 0);
+		opacity: 1!important;
+		//margin-top: -409px;
+	}
+
+	&.hide{
+		left: -100%;
+	}
+}
+
+
+
+.scenes{
+	.absoluteTopLeft;
+	width:			100%;
+	height:			100%;
+	overflow: 		hidden;
+	z-index: 		50;
+
+	> nav{
+		width: 100%;
+		.absoluteTopLeft;
+
+		background: black;
+		z-index: 	500;
+		overflow:   hidden;
+
+		display: none;
+		border-bottom: 5px;
+
+		.logo{
+			.absoluteTopLeft(50%, 2rem);
+			margin-top: -10px;
+		}
+
+		ul{
+			overflow: hidden;
+			margin-left: 12rem;
+
+			position: relative;
+
+			li{
+
+				width: 19%;
+
+				&.selected{
+					cursor: default;
+			
+					img{
+						opacity: 1;
+					}
+				}
+
+				margin: 5px 5px 5px 0;
+
+
+
+				float: left;
+				a{
+					color: white;
+					text-decoration: none;
+				}
+
+				img{
+					display: block;
+					width: 		100%;
+					opacity: .5;
+
+					.transition(~"opacity .3s @{easeInOut}")
+
+				}
+			}
+
+			&:hover{
+
+				img{
+					opacity: 0.5;
+				}
+
+				li:hover img{
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.menu{
+			.absoluteTopRight(1rem, 1rem);
+			z-index: 100;
+			display: none;
+		}
+
+	section.scene{
+		@margin: 	0.2%;
+
+		margin-left: 0;
+
+		.absoluteTopLeft;
+		width: (100% + @margin);
+		background: 		transparent no-repeat center top;
+		background-size:	100% auto;
+		overflow: hidden;
+
+		.content{
+			.transform-origin(0 0);
+		}
+
+		
+
+
+		.background{
+			float: left;
+			.transition(~"opacity .5s @{easeInOut}");
+
+			img{
+				//width: 		100%;
+			}
+		}
+
+		&.character-talking{
+			.background{
+				opacity: .5;
+			}
+
+			.characters li:not(.highlight){
+				opacity: .5;
+			}
+		}
+
+		> nav{
+			.absoluteTopLeft(10%, 100%);
+			z-index: 2;
+			margin-left: 1rem;
+			display: none;
+			width: 100%;
+			height: 80%;
+
+			border-left: white 1px solid;
+
+			ul{
+
+				li{
+					.absoluteTopRight;
+					height: 100%;
+
+					.transition (all 1s @easeInOutBack);
+
+					a{
+						display: block;
+						overflow: hidden;
+						padding-top: 100%;
+						width: 2rem;
+						height: 0;
+						.border-radius(100%);
+						background: white;
+						position: relative;
+						left: 1rem;
+					}
+
+					&.selected{
+						right: 95%;
+					}
+
+				}
+			}
+		}
+		
+
+		left: 100%;
+
+		&.transition-in{
+			left: 0;
+
+			.transition(~"left @{transitionDuration} @{transitionEase}");
+
+			> nav{
+				display: block;
+			}
+		}
+
+		&.transition-out{
+			left: -100%;
+			.transition(~"left @{transitionDuration} @{transitionEase}");
+
+			> nav{
+				display: none;
+			}
+		}
+
+		&:nth-child(1){
+			z-index: 100;
+		}
+
+
+		&:nth-child(2){
+			z-index: 99;
+		}
+
+
+
+		ul.characters{
+
+			li{
+				position: absolute;
+
+				color: white;
+
+				font-size: 3rem;
+				z-index: 100%;
+
+				.transition(all 1.5s @easeInOutBack);
+
+
+				a{
+					color: inherit;
+					text-decoration: none;
+					display: block;
+				}
+
+				img{
+					display: block;
+				.transition(all 1.5s @easeInOutBack);
+
+				}
+
+				.img{
+					.transform(~"rotateY(180deg)");
+					.transform-origin(center center);
+					opacity: 0;
+				}
+
+				.icon{
+					.absoluteTopLeft;
+
+				}
+
+				&.highlight{
+					.transform(~"rotateY(180deg)");
+					.transform-origin(center center);
+					//.animation(~"character-talking linear .3s infinite");
+					color: 			red;
+
+					.img{
+						opacity : 1;
+					}
+
+					.icon{
+						opacity: 0;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+// @character-talking-keyframes : " 0% {opacity: 1} 20% {opacity: .5} 40% {opacity: 1} 60% {opacity: .7} 80% {opacity: .5} 100% {opacity: 1} ";
+
+// @keyframes character-talking
+// {
+// 	@{character-talking-keyframes}
+// }
+
+@-webkit-keyframes character-talking
+{
+	0% {opacity: 1} 20% {opacity: .5} 40% {opacity: 1} 60% {opacity: .7} 80% {opacity: .5} 100% {opacity: 1}
+}
+

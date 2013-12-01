@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="styles/css/reset.css">
+        <link rel="stylesheet/less" href="styles/less/main/main.less">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/less-1.5.0.min.js"></script>
+    </head>
+    <body>
+        <article id="scenes-container" class="scenes">
+            <img class="menu" src="media/img/main/menu.png"/>
+            <audio id="camera-click">
+              <source src="media/audio/ambient-ramblas.mp3" type="audio/mpeg">
+              <source src="media/audio/ambient-ramblas.wav" type="audio/wav">
+            </audio>
+            <audio id="background">
+              <source src="media/audio/camera-click.mp3" type="audio/mpeg">
+              <source src="media/audio/camera-click.wav" type="audio/wav">
+            </audio>
+            <nav>
+            <img class="logo" src="media/img/main/logo.png"/>
+
+                <ul>
+                    <li>
+                        <a href="#scene-1" data-scene="0">
+                            <img src="media/img/main/thumbnails/01.png"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#scene-2" data-scene="1">
+                            <img src="media/img/main/thumbnails/02.jpg"/>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="media/img/main/thumbnails/03.png"/>
+                    </li>
+                    <li>
+                        <img src="media/img/main/thumbnails/04.png"/>
+                    </li>
+                    <li>
+                        <img src="media/img/main/thumbnails/05.png"/>
+                    </li>
+                </ul>
+
+            </nav>
+            <section class="intro">
+                <video id="intro">
+                  <source src="media/video/intro.mp4" type="video/mp4">
+                  <source src="media/video/intro.ogg" type="video/ogg">
+                </video>
+            </section>
+            <section id="scene-1" class="scene">
+                <div class="content">
+                    <img class="background" src="media/img/main/scene1.jpg" />
+                    <nav>
+                        <ul>
+                            <li data-character="prostitute">
+                                <a href="#">
+                                    Prostituta
+                                </a>
+                            </li>
+                            <li data-character="statue">
+                                <a href="#">
+                                    Statue
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <ul class="characters">
+                        <li style="top: 510px; left: 210px;" data-character="prostitute">
+                            <a href="#">
+                                <img class="icon" src="media/img/main/people-icon.png" width="90" style="margin-top:0px;"/>
+                                <img class="img" src="media/img/main/characters/prostitute.png" />
+                            </a>
+                            <audio id="prostitute-audio-01">
+                              <source src="media/audio/scenes/01/prostitute.mp3" type="audio/mpeg">
+                              <source src="media/audio/scenes/01/prostitute.wav" type="audio/wav">
+                            </audio>
+                        </li>
+                        <li style="top: 470px; left: 750px;" data-character="statue">
+                            <a href="#statute">
+                                <img class="icon" src="media/img/main/people-icon.png" width="100" style="margin-top:90px;"/>
+                                <img class="img" src="media/img/main/characters/statue.png" />
+                            </a>
+                            <audio id="statue-audio-01">
+                              <source src="media/audio/scenes/01/statue.mp3" type="audio/mpeg">
+                              <source src="media/audio/scenes/01/statue.wav" type="audio/wav">
+                            </audio>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section id="scene-2" class="scene">
+                <div class="content">
+                    <img class="background" src="media/img/main/scene2.jpg" />
+                    <ul class="characters">
+                        
+                    </ul>
+                </div>
+            </section>
+        </article>
+
+
+
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="js/vendor/popcorn.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>

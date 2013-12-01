@@ -1,0 +1,214 @@
+.global-box-shadow(){
+	.box-shadow			(0 0 20px rgba(0,0,0, 0.74) );
+}
+
+
+.sprite-block(@url, @width, @height, @left:0, @top:0){
+	background-image: 		url("@{url}");
+	background-repeat: 		no-repeat;
+	background-position: 	@left @top;
+	width: 					@width;
+	height: 				0;
+	padding-top: 			@height;
+	overflow: 				hidden;
+	display: 				block;
+}
+
+
+.alpha-bg-black(@opacity) {
+	.rgba &{
+		background-color: 	rgba(0, 0, 0, @opacity);
+	}
+}
+
+
+.alpha-bg-white(@opacity) {
+	.rgba &{
+		background-color: 	rgba(255, 255, 255, @opacity);
+	}
+}
+
+
+// POSITION
+
+.absoluteTopLeft(@top:0px, @left:0px) {
+	position:						absolute;
+	top:							@top;
+	left:							@left;
+	bottom: 						auto;
+	right: 							auto;
+}
+
+.absoluteTopRight(@top:0px, @right:0px) {
+	position:						absolute;
+	top:							@top;
+	right:							@right;
+	bottom: 						auto;
+	left: 							auto;
+}
+
+.absoluteBottomLeft(@bottom:0px, @left:0px) {
+	position:						absolute;
+	bottom:							@bottom;
+	left:							@left;
+	top: 							auto;
+	right: 							auto;
+}
+
+.absoluteBottomRight(@bottom:0px, @right:0px) {
+	position:						absolute;
+	bottom:							@bottom;
+	right:							@right;
+	top: 							auto;
+	left: 							auto;
+}
+
+.fixedTopLeft(@top:0px, @left:0px) {
+	position:						fixed;
+	top:							@top;
+	left:							@left;
+	bottom: 						auto;
+	right: 							auto;
+}
+
+.fixedTopRight(@top:0px, @right:0px) {
+	position:						fixed;
+	top:							@top;
+	right:							@right;
+	bottom: 						auto;
+	left: 							auto;
+}
+
+.fixedBottomLeft(@bottom:0px, @left:0px) {
+	position:						fixed;
+	bottom:							@bottom;
+	left:							@left;
+	top: 							auto;
+	right: 							auto;
+}
+
+.fixedBottomRight(@bottom:0px, @right:0px) {
+	position:						fixed;
+	bottom:							@bottom;
+	right:							@right;
+	top: 							auto;
+	left: 							auto;
+}
+
+.block(@width:auto, @height:auto) {
+	display:block;
+	width:@width;
+	height:@height;
+}
+
+.blockWhitoutDisplay(@width:auto, @height:auto) {
+	width:@width;
+	height:@height;
+}
+
+.gradient(@origin, @startColor, @stopColor, @startPoint:12%, @stopPoint: 73%) {
+	background-color: 				@startColor;
+	background-image: 				-webkit-linear-gradient(@origin, @startColor @startPoint, @stopColor @stopPoint);
+	background-image: 				-moz-linear-gradient(@origin, @startColor @startPoint, @stopColor @stopPoint);
+	background-image: 				-o-linear-gradient(@origin, @startColor @startPoint, @stopColor @stopPoint);
+	background-image: 				-ms-linear-gradient(@origin, @startColor @startPoint, @stopColor @stopPoint);
+	background-image: 				linear-gradient(@origin, @startColor @startPoint, @stopColor @stopPoint);
+}
+
+.gradient(radial, @origin, @startColor, @stopColor, @startPoint:12%, @stopPoint: 73%) {
+	background-color: 				@startColor;
+	background-image: 				-webkit-gradient(radial, @origin, @startColor @startPoint, @stopColor @stopPoint);
+	background-image: 				-moz-radial-gradient(@origin, @startColor @startPoint, @stopColor @stopPoint);
+	background-image: 				-o-radial-gradient(@origin, @startColor @startPoint, @stopColor @stopPoint);
+	background-image: 				-ms-radial-gradient(@origin, @startColor @startPoint, @stopColor @stopPoint);
+	background-image: 				radial-gradient(ellipse at @origin, @startColor @startPoint, @stopColor @stopPoint);
+	filter: 						progid:DXImageTransform.Microsoft.gradient( startColorstr='@{startColor}', endColorstr='@{stopColor}',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+
+
+// EASES
+
+@easeIn: 					cubic-bezier(0.420, 0.000, 1.000, 1.000);
+@easeOut:					cubic-bezier(0.000, 0.000, 0.580, 1.000);
+@easeInOut: 				cubic-bezier(0.420, 0.000, 0.580, 1.000);
+
+@easeInBack: 				cubic-bezier(0.600, -0.280, 0.735, 0.045);
+@easeOutBack: 				cubic-bezier(0.175, 0.885, 0.320, 1.275);
+@easeInOutBack:				cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+@easeInCirc: 				cubic-bezier(0.600, 0.040, 0.980, 0.335);
+@easeOutCirc: 				cubic-bezier(0.075, 0.820, 0.165, 1.000); 
+@easeInOutCirc:				cubic-bezier(0.785, 0.135, 0.150, 0.860); 
+
+// ARROW
+
+.arrow(right, @size, @color){
+	border-right:  			transparent @size/2 solid;
+	border-top:  			transparent @size/2 solid;
+	border-bottom: 			transparent @size/2 solid;
+	border-left:  			@color @size/2 solid;
+}
+
+.arrow(left, @size, @color){
+	border-left:  			transparent @size/2 solid;
+	border-top:  			transparent @size/2 solid;
+	border-bottom: 			transparent @size/2 solid;
+	border-right:  			@color @size/2 solid;
+}
+
+.arrow(top, @size, @color){
+	border-left:  			transparent @size/2 solid;
+	border-right:  			transparent @size/2 solid;
+	border-top:  			transparent @size/2 solid;
+	border-bottom: 			@color @size/2 solid;
+}
+
+.arrow(bottom, @size, @color){
+	border-left:  			transparent @size/2 solid;
+	border-right:  			transparent @size/2 solid;
+	border-bottom: 			transparent @size/2 solid;
+	border-top:  			@color @size/2 solid;
+}
+
+
+.arrow(right, @width, @height, @color){
+	border-right:  			transparent @width solid;
+	border-top:  			transparent @height/2 solid;
+	border-bottom: 			transparent @height/2 solid;
+	border-left:  			@color @width solid;
+}
+
+.arrow(left, @width, @height, @color){
+	border-left:  			transparent @width solid;
+	border-top:  			transparent @height/2 solid;
+	border-bottom: 			transparent @height/2 solid;
+	border-right:  			@color @width solid;
+}
+
+.arrow(top, @width, @height, @color){
+	border-left:  			transparent @width/2 solid;
+	border-right:  			transparent @width/2 solid;
+	border-top:  			transparent @height solid;
+	border-bottom: 			@color @height solid;
+}
+
+.arrow(bottom, @width, @height, @color){
+	border-left:  			transparent @width/2 solid;
+	border-right:  			transparent @width/2 solid;
+	border-bottom: 			transparent @height solid;
+	border-top:  			@color @height solid;
+}
+
+
+.fullCenterContent(@width, @height){
+	width:					@width;
+	height:					@height;
+	text-align:				center;
+	
+	.absoluteTopLeft		(50%, 50%);
+	margin-left:			-(@width/2);
+	margin-top:				-(@height/2);
+	
+	overflow:				hidden;
+}
